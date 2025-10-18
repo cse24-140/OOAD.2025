@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="443.0" prefWidth="472.0"
+      xmlns="http://javafx.com/javafx/23.0.1"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="LoginController">
+
+   <children>
+      <!-- Bank Title -->
+      <TextArea fx:id="txtBankTitle" layoutX="61.0" layoutY="54.0" prefHeight="39.0" prefWidth="200.0"
+                text="Orange Bank Of Botswana" editable="false" focusTraversable="false"/>
+
+      <!-- Labels -->
+      <Label layoutX="55.0" layoutY="147.0" prefHeight="13.0" prefWidth="122.0" text="Username:"/>
+      <Label layoutX="55.0" layoutY="250.0" prefHeight="13.0" prefWidth="122.0" text="Password:"/>
+
+      <!-- Input fields -->
+      <TextField fx:id="txtUsername" layoutX="177.0" layoutY="147.0" prefHeight="39.0" prefWidth="252.0"/>
+      <TextField fx:id="txtPassword" layoutX="177.0" layoutY="250.0" prefHeight="39.0" prefWidth="252.0"/>
+
+      <!-- Buttons -->
+      <Button fx:id="btnLogin" layoutX="55.0" layoutY="342.0" mnemonicParsing="false"
+              onAction="#handleLogin" prefHeight="25.0" prefWidth="95.0" text="Login"/>
+      <Button fx:id="btnSignUp" layoutX="236.0" layoutY="342.0" mnemonicParsing="false"
+              onAction="#handleSignUp" prefHeight="25.0" prefWidth="95.0" text="Sign Up"/>
+   </children>
+</Pane>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="362.0" prefWidth="459.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TextArea fx:id="txtOrangeBankOfBotswana" layoutX="134.0" layoutY="29.0" prefHeight="38.0" prefWidth="205.0" text="Orange Bank Of Botswana" />
+      <TextArea fx:id="txtCashWithdrawl" layoutX="50.0" layoutY="86.0" prefHeight="39.0" prefWidth="156.0" text="Cash Withdrawal" />
+      <TextField fx:id="txtAmount" layoutX="140.0" layoutY="159.0" onAction="#handleAmount" prefHeight="38.0" prefWidth="149.0" />
+      <TextArea fx:id="txtAmount" layoutX="50.0" layoutY="159.0" prefHeight="25.0" prefWidth="90.0" text="Amount:" />
+      <Button fx:id="txtConfirm" layoutX="54.0" layoutY="238.0" mnemonicParsing="false" onAction="#handleConfirm" prefHeight="31.0" prefWidth="100.0" text="Confirm" />
+      <Button fx:id="btnBack" layoutX="339.0" layoutY="292.0" mnemonicParsing="false" onAction="#handleBack" prefHeight="31.0" prefWidth="52.0" text="Back" />
+   </children>
+</Pane>

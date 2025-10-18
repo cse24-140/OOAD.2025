@@ -1,7 +1,6 @@
-public class Cheque {
-    import java.util.Date;
+import java.sql.Date;
 
-public class Cheque extends Account implements Deposit, Withdrawal {
+public class Cheque extends Account implements  Withdrawal {
     private String chequeNumber;
     private Date issueDate;
     private double amount;
@@ -22,13 +21,12 @@ public class Cheque extends Account implements Deposit, Withdrawal {
     }
 
     @Override
-    public void withdraw(double amount) {
+    public boolean withdraw(double amount) {
         if (amount <= balance) {
             balance -= amount;
         } else {
             System.out.println("Insufficient funds!");
         }
+        return false;
     }
-}
-
 }

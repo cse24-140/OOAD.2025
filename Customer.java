@@ -1,5 +1,4 @@
-public class Customer {
-    public class Customer {
+   public abstract class Customer {
         protected String customerId;
         protected String phone;
         protected String address;
@@ -25,4 +24,4 @@ public class Customer {
              
     }
     
-}
+

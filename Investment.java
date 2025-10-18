@@ -1,5 +1,4 @@
-public class InvestmentAccount {
-    public class Investment extends Account implements Deposit {
+    public class Investment extends Account implements PayInterest, Withdrawal {
         private static final double INTEREST_RATE = 0.05;
         private static final double MIN_DEPOSIT = 500;
     
@@ -19,6 +18,14 @@ public class InvestmentAccount {
         public void applyInterest() {
             balance += balance * INTEREST_RATE;
         }
+
+        @Override
+        public void payInterest() {
+
+        }
+
+        @Override
+        public boolean withdraw(double amount) {
+            return false;
+        }
     }
-    
-}

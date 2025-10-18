@@ -1,29 +1,25 @@
-public class Main {
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
+public class Main extends Application {
+
+    @Override
+    public void start(Stage primaryStage) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/Login.fxml"));
+            primaryStage.setTitle("Orange Bank of Botswana - Login");
+            primaryStage.setScene(new Scene(root));
+            primaryStage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Failed to load Login.fxml");
+        }
+    }
+
     public static void main(String[] args) {
-        // Create an account
-        Account acc = new Account("AC001", 1500.00, "C001");
-        System.out.println("Account Created:");
-        System.out.println(acc.toString());
-        System.out.println("-------------------------");
-
-        // Create a deposit transaction
-        Transaction deposit = new Transaction("T001", acc.getAccountNumber(), 500.00, "Deposit");
-        System.out.println(" New Transaction:");
-        System.out.println(deposit.toString());
-        System.out.println("-------------------------");
-
-        // Update account balance after deposit
-        acc.balance += deposit.getAmount();
-        System.out.println(" Updated Account Balance: " + acc.getBalance());
-
-        // Create a withdrawal transaction
-        Transaction withdrawal = new Transaction("T002", acc.getAccountNumber(), 200.00, "Withdrawal");
-        System.out.println("\n New Transaction:");
-        System.out.println(withdrawal.toString());
-        System.out.println("-------------------------");
-
-        // Update account balance after withdrawal
-        acc.balance -= withdrawal.getAmount();
-        System.out.println("Updated Account Balance: " + acc.getBalance());
+        launch(args);
     }
 }
