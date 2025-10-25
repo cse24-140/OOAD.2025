@@ -79,5 +79,8 @@ public class DashboardController {
             showAlert("Error", "Unable to load Login.fxml");
         }
     }
+
+    public void setUsername(String username) {
+    }
 }
 

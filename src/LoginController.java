@@ -36,9 +36,10 @@ public class LoginController {
         if (username.isEmpty() || password.isEmpty()) {
             showAlert("Error", "Please enter both username and password.");
         } else {
+            // Simple authentication example
             if (username.equals("admin") && password.equals("1234")) {
                 showAlert("Login Successful", "Welcome, " + username + "!");
-                loadDashboard();
+                loadDashboard(username); // pass username to Dashboard
             } else {
                 showAlert("Login Failed", "Invalid username or password.");
             }
@@ -59,9 +60,15 @@ public class LoginController {
         alert.showAndWait();
     }
 
-    private void loadDashboard() {
+    private void loadDashboard(String username) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("/Dashboard.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Dashboard.fxml"));
+            Parent root = loader.load();
+
+            // Get the DashboardController and send username
+            DashboardController dashboardController = loader.getController();
+            dashboardController.setUsername(username);
+
             Stage stage = (Stage) btnLogin.getScene().getWindow();
             stage.setScene(new Scene(root));
             stage.setTitle("Orange Bank of Botswana - Dashboard");

@@ -44,15 +44,30 @@ public class SignUpController {
         String password = txtPassword.getText();
         String confirmPassword = txtConfirmPassword.getText();
 
+        // ✅ Validate fields
         if (customerID.isEmpty() || firstName.isEmpty() || lastName.isEmpty() ||
                 username.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
             showAlert("Error", "Please fill in all fields.");
-        } else if (!password.equals(confirmPassword)) {
-            showAlert("Error", "Passwords do not match!");
-        } else {
-            showAlert("Success", "Account created successfully for " + username + "!\nCustomer ID: " + customerID);
-            loadLoginScreen();
+            return;
         }
+
+        // ✅ Check if username already exists
+        if (UserData.userExists(username)) {
+            showAlert("Error", "Username already exists! Please choose another one.");
+            return;
+        }
+
+        // ✅ Check password confirmation
+        if (!password.equals(confirmPassword)) {
+            showAlert("Error", "Passwords do not match!");
+            return;
+        }
+
+        // ✅ Save new user account
+        UserData.addAccount(username, password);
+
+        showAlert("Success", "Account created successfully for " + username + "!\nYou can now log in.");
+        loadLoginScreen();
     }
 
     @FXML
@@ -60,6 +75,7 @@ public class SignUpController {
         loadLoginScreen();
     }
 
+    // 🔹 Utility: Show alert message
     private void showAlert(String title, String message) {
         Alert alert = new Alert(AlertType.INFORMATION);
         alert.setTitle(title);
@@ -68,9 +84,10 @@ public class SignUpController {
         alert.showAndWait();
     }
 
+    // 🔹 Load the login screen
     private void loadLoginScreen() {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("/Login.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("Login.fxml")); // no package, same folder
             Stage stage = (Stage) btnCreateAccount.getScene().getWindow();
             stage.setScene(new Scene(root));
             stage.setTitle("Orange Bank of Botswana - Login");
