@@ -1,17 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.TextArea?>
-<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 
+<AnchorPane prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: linear-gradient(to bottom right, #ff8c00, #ffffff);" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="DashboardController">
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="456.0" prefWidth="474.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
-      <Button fx:id="btnAccounts" layoutX="80.0" layoutY="195.0" mnemonicParsing="false" onAction="#handleAccounts" prefHeight="33.0" prefWidth="146.0" text="Accounts" />
-      <Button fx:id="btnViewBalance" layoutX="80.0" layoutY="263.0" mnemonicParsing="false" onAction="#handleViewBalance" prefHeight="33.0" prefWidth="146.0" text="View Balance" />
-      <Button fx:id="btnViewTransactionHistory" layoutX="80.0" layoutY="328.0" mnemonicParsing="false" onAction="#handleViewTransactionHistory" prefHeight="33.0" prefWidth="146.0" text="View Transaction History " />
-      <Button fx:id="btnLogOut" layoutX="274.0" layoutY="391.0" mnemonicParsing="false" onAction="#handleLogOut" prefHeight="33.0" prefWidth="120.0" text="Log Out" />
-      <TextArea fx:id="txtDASHBOARD" layoutX="177.0" layoutY="120.0" prefHeight="38.0" prefWidth="120.0" text="      DASHBOARD" />
-      <TextArea fx:id="txtOrangeBankOfBotswana" layoutX="153.0" layoutY="39.0" prefHeight="39.0" prefWidth="181.0" text="  Orange Bank Of Botswana" />
-   </children>
-</Pane>
+   <!-- HEADER -->
+   <HBox alignment="CENTER_LEFT" layoutX="248.0" layoutY="47.0" prefHeight="45.0" prefWidth="283.0" spacing="20" style="-fx-background-color: black; -fx-padding: 15;" />
+
+   <!-- MAIN CONTENT -->
+   <VBox alignment="CENTER" layoutX="200" layoutY="120" prefHeight="300" prefWidth="400" spacing="20" style="-fx-background-color: rgba(255,255,255,0.95); -fx-background-radius: 15; -fx-padding: 30; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.25), 10, 0, 0, 2);">
+
+      <Label fx:id="lblWelcome" style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #ff8c00;" text="Welcome, User!" />
+
+      <Separator />
+
+      <Button fx:id="btnAccounts" onAction="#handleAccounts" prefHeight="40" prefWidth="220" style="-fx-font-size: 14px; -fx-background-color: #ff8c00; -fx-text-fill: white; -fx-background-radius: 10;" text="Manage Accounts" />
+
+      <Button fx:id="btnViewBalance" onAction="#handleViewBalance" prefHeight="40" prefWidth="220" style="-fx-font-size: 14px; -fx-background-color: #ff8c00; -fx-text-fill: white; -fx-background-radius: 10;" text="View Balance" />
+
+      <Button fx:id="btnViewTransactionHistory" onAction="#handleViewTransactionHistory" prefHeight="40" prefWidth="220" style="-fx-font-size: 14px; -fx-background-color: #ff8c00; -fx-text-fill: white; -fx-background-radius: 10;" text="Transaction History" />
+
+      <Button fx:id="btnLogOut" onAction="#handleLogOut" prefHeight="40" prefWidth="220" style="-fx-font-size: 14px; -fx-background-color: black; -fx-text-fill: white; -fx-background-radius: 10;" text="Log Out" />
+   </VBox>
+
+   <!-- FOOTER -->
+   <Label layoutX="300" layoutY="470" style="-fx-font-size: 12px; -fx-text-fill: black;" text="© 2025 Orange Bank of Botswana" />
+   <Label layoutX="253.0" layoutY="52.0" style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: white;" text="Orange Bank of Botswana" />
+
+</AnchorPane>

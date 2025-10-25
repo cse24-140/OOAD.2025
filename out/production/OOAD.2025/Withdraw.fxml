@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.Pane?>
 
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="362.0" prefWidth="459.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="362.0" prefWidth="459.0" fx:controller="CashWithdrawlController" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <TextArea fx:id="txtOrangeBankOfBotswana" layoutX="134.0" layoutY="29.0" prefHeight="38.0" prefWidth="205.0" text="Orange Bank Of Botswana" />
       <TextArea fx:id="txtCashWithdrawl" layoutX="50.0" layoutY="86.0" prefHeight="39.0" prefWidth="156.0" text="Cash Withdrawal" />
