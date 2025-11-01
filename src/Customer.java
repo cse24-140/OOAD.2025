@@ -6,10 +6,9 @@ public abstract class Customer {
     protected String phone;
     protected String address;
     protected String email;
-    protected String password;  // Added password field
+    protected String password;
     protected List<Account> accounts;
 
-    // Updated constructor to include password
     public Customer(String customerId, String phone, String address, String email, String password) {
         this.customerId = customerId;
         this.phone = phone;
@@ -19,7 +18,7 @@ public abstract class Customer {
         this.accounts = new ArrayList<>();
     }
 
-    // ======== Getters ========
+    // Getters
     public String getCustomerId() { return customerId; }
     public String getPhone() { return phone; }
     public String getAddress() { return address; }
@@ -27,13 +26,13 @@ public abstract class Customer {
     public String getPassword() { return password; }
     public List<Account> getAccounts() { return accounts; }
 
-    // ======== Setters ========
+    // Setters
     public void setPhone(String phone) { this.phone = phone; }
     public void setAddress(String address) { this.address = address; }
     public void setEmail(String email) { this.email = email; }
-    public void setPassword(String password) { this.password = password; }  // Allows password updates
+    public void setPassword(String password) { this.password = password; }
 
-    // ======== Account Management ========
+    // Account Management
     public void addAccount(Account account) {
         accounts.add(account);
     }
@@ -49,13 +48,11 @@ public abstract class Customer {
         return accounts.stream().mapToDouble(Account::getBalance).sum();
     }
 
-    // Apply monthly interest to all applicable accounts
     public void applyMonthlyInterestToAllAccounts() {
         for (Account account : accounts) {
             account.applyMonthlyInterest();
         }
     }
 
-    // Each subclass must define what type of customer it is
     public abstract String getCustomerType();
 }

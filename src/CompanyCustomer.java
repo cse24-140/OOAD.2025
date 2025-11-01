@@ -20,9 +20,4 @@ public class CompanyCustomer extends Customer {
     public String getCustomerType() {
         return "Company";
     }
-
-    @Override
-    public String toString() {
-        return String.format("Company Customer: %s (Reg: %s)", companyName, registrationNumber);
-    }
 }

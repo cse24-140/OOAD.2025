@@ -12,17 +12,10 @@ import java.io.IOException;
 
 public class InvestmentController {
 
-    @FXML
-    private Button btnCalculateReturn;
-
-    @FXML
-    private Button btnInvest;
-
-    @FXML
-    private Button btnBack;
-
-    @FXML
-    private TextField txtInvestmentAmount;
+    @FXML private Button btnCalculateReturn;
+    @FXML private Button btnInvest;
+    @FXML private Button btnBack;
+    @FXML private TextField txtInvestmentAmount;
 
     private BankingSystem bankingSystem;
     private Customer customer;
@@ -40,7 +33,6 @@ public class InvestmentController {
         System.out.println("InvestmentController initialized");
     }
 
-    // Handle Calculate Return
     @FXML
     private void handleCalculateReturn() {
         String amountText = txtInvestmentAmount.getText().trim();
@@ -59,7 +51,8 @@ public class InvestmentController {
                 return;
             }
 
-            double monthlyRate = InvestmentAccount.getMonthlyInterestRate(); // Now this will work
+            // Use the constant directly since we know the interest rate
+            double monthlyRate = 0.05; // 5% monthly interest rate
             double annualRate = monthlyRate * 12;
 
             // Calculate returns for different periods
@@ -96,7 +89,6 @@ public class InvestmentController {
         }
     }
 
-    // Handle Invest
     @FXML
     private void handleInvest() {
         String amountText = txtInvestmentAmount.getText().trim();
@@ -115,7 +107,8 @@ public class InvestmentController {
                 return;
             }
 
-            double monthlyRate = InvestmentAccount.getMonthlyInterestRate(); // Now this will work
+            // Use the constant directly
+            double monthlyRate = 0.05; // 5% monthly interest rate
             double annualRate = monthlyRate * 12;
 
             Alert confirmation = new Alert(Alert.AlertType.CONFIRMATION);
@@ -171,7 +164,6 @@ public class InvestmentController {
         }
     }
 
-    // Handle Back
     @FXML
     private void handleBack() {
         try {

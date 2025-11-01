@@ -1,4 +1,4 @@
-public class SavingsAccount extends Account {
+public class SavingsAccount extends Account implements InterestBearing {
     private static final double MONTHLY_INTEREST_RATE = 0.0005; // 0.05% monthly
 
     public SavingsAccount(String accountNumber, double balance, String customerId) {
@@ -22,5 +22,10 @@ public class SavingsAccount extends Account {
     public void applyMonthlyInterest() {
         double interest = balance * MONTHLY_INTEREST_RATE;
         balance += interest;
+    }
+
+    @Override
+    public double getMonthlyInterestRate() {
+        return 0;
     }
 }

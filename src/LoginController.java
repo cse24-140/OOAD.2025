@@ -8,29 +8,18 @@ import java.io.IOException;
 
 public class LoginController {
 
-    @FXML
-    private Button btnLogin;
-
-    @FXML
-    private Button btnSignUp;
-
-    @FXML
-    private TextField txtUsername;
-
-    @FXML
-    private PasswordField txtPassword;
-
-    @FXML
-    private Label txtBankTitle;
+    @FXML private Button btnLogin;
+    @FXML private Button btnSignUp;
+    @FXML private TextField txtUsername;
+    @FXML private PasswordField txtPassword;
+    @FXML private Label txtBankTitle;
 
     private BankingSystem bankingSystem;
 
     @FXML
     public void initialize() {
-        // Initialize the BankingSystem instance (Singleton)
         bankingSystem = BankingSystem.getInstance();
         System.out.println("LoginController initialized. Total customers: " + bankingSystem.getCustomerCount());
-        System.out.println("Available customers: " + bankingSystem.getCustomers().keySet());
     }
 
     @FXML
@@ -58,7 +47,6 @@ public class LoginController {
         } else {
             showAlert("Account Not Found",
                     "No customer account found with ID: " + username + "\n\n" +
-                            "Available Customer IDs: " + bankingSystem.getCustomers().keySet() + "\n" +
                             "Please sign up for a new account or check your Customer ID.");
         }
     }
@@ -66,8 +54,6 @@ public class LoginController {
     private boolean isValidCustomerLogin(String customerId, String password) {
         Customer customer = bankingSystem.getCustomer(customerId);
         if (customer == null) return false;
-
-        // Compare entered password with the one stored in the Customer object
         return password.equals(customer.getPassword());
     }
 
@@ -100,7 +86,6 @@ public class LoginController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/Dashboard.fxml"));
             Parent root = loader.load();
 
-            // Send data to DashboardController
             DashboardController dashboardController = loader.getController();
             dashboardController.setCustomer(customer);
             dashboardController.setBankingSystem(bankingSystem);
@@ -120,7 +105,6 @@ public class LoginController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/SignUp.fxml"));
             Parent root = loader.load();
 
-            // Pass banking system to sign-up controller
             SignUpController signUpController = loader.getController();
             signUpController.setBankingSystem(bankingSystem);
 

@@ -69,8 +69,6 @@ public class DashboardController {
                 lblAccountCount.setText("Accounts: " + accountCount);
             }
         }
-
-        System.out.println("DashboardController: Dashboard updated successfully!");
     }
 
     private String getCustomerDisplayName(Customer customer) {
@@ -84,7 +82,7 @@ public class DashboardController {
         return customer.getCustomerId();
     }
 
-    // ===== REAL FUNCTIONALITY =====
+    // ===== REAL FXML LOADING FOR ALL BUTTONS =====
 
     @FXML
     private void handleOpenAccount() {
@@ -92,7 +90,6 @@ public class DashboardController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/OpenAccount.fxml"));
             Parent root = loader.load();
 
-            // Pass data to OpenAccountController
             OpenAccountController controller = loader.getController();
             controller.setCustomer(customer);
             controller.setBankingSystem(bankingSystem);
@@ -111,8 +108,8 @@ public class DashboardController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/ManageAccounts.fxml"));
             Parent root = loader.load();
 
-            // Pass data to ViewAccountsController
             ViewAccountsController controller = loader.getController();
+            // Pass data to controller if needed
             controller.setCustomer(customer);
             controller.setBankingSystem(bankingSystem);
 
@@ -130,7 +127,6 @@ public class DashboardController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/Deposit.fxml"));
             Parent root = loader.load();
 
-            // Pass data to DepositController
             DepositController controller = loader.getController();
             controller.setCustomer(customer);
             controller.setBankingSystem(bankingSystem);
@@ -149,7 +145,6 @@ public class DashboardController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/Withdraw.fxml"));
             Parent root = loader.load();
 
-            // Pass data to CashWithdrawlController
             CashWithdrawlController controller = loader.getController();
             controller.setCustomer(customer);
             controller.setBankingSystem(bankingSystem);
@@ -164,7 +159,7 @@ public class DashboardController {
 
     @FXML
     private void handleViewBalance() {
-        // Show detailed balance information
+        // Show detailed balance information in an alert
         StringBuilder balanceInfo = new StringBuilder();
         balanceInfo.append("=== ACCOUNT BALANCES ===\n\n");
 
@@ -189,7 +184,7 @@ public class DashboardController {
 
     @FXML
     private void handleTransactionHistory() {
-        // Show transaction history
+        // Show transaction history in an alert
         StringBuilder transactions = new StringBuilder();
         transactions.append("=== RECENT TRANSACTIONS ===\n\n");
 
@@ -198,7 +193,7 @@ public class DashboardController {
                 transactions.append(String.format("Account: %s (%s)\n", account.getAccountNumber(), account.getAccountType()));
                 transactions.append(String.format("Current Balance: BWP %.2f\n", account.getBalance()));
 
-                // Sample transactions - in real app, these would come from a transaction log
+                // Sample transactions
                 if (account.getAccountNumber().equals("ACC00001")) {
                     transactions.append("• Jan 15: Deposit - BWP 1,000.00\n");
                     transactions.append("• Jan 10: Interest Applied - BWP 15.00\n");
@@ -224,7 +219,6 @@ public class DashboardController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/Investment.fxml"));
             Parent root = loader.load();
 
-            // Pass data to InvestmentController
             InvestmentController controller = loader.getController();
             controller.setCustomer(customer);
             controller.setBankingSystem(bankingSystem);

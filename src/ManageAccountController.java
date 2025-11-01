@@ -11,102 +11,80 @@ import java.io.IOException;
 
 public class ManageAccountController {
 
-    @FXML
-    private TextArea txtOrangeBankOfBotswana;
-
-    @FXML
-    private TextArea txtManageAccounts;
-
-    @FXML
-    private Button txtCashWithdrawl;  // Note: matches FXML spelling
-
-    @FXML
-    private Button btnInvestment;
-
-    @FXML
-    private Button btnDeposit;
-
-    @FXML
-    private Button btnBack;
+    @FXML private Button btnCashWithdrawl;
+    @FXML private Button btnInvestment;
+    @FXML private Button btnDeposit;
+    @FXML private Button btnBack;
+    @FXML private TextArea txtViewAccounts;
 
     @FXML
     public void initialize() {
-        // Initialize the text areas with content
-        txtOrangeBankOfBotswana.setText("Orange Bank of Botswana\nYour Trusted Banking Partner");
-        txtOrangeBankOfBotswana.setEditable(false);
-        txtOrangeBankOfBotswana.setStyle("-fx-font-weight: bold; -fx-font-size: 14px;");
-
         displayAccountInformation();
     }
 
     private void displayAccountInformation() {
         String accountInfo = """
-            Account Management Dashboard
-            ===========================
+            Account Summary:
+            ================
+            Account Holder: John Doe
+            Customer ID: CUST001
+            Account Type: Savings
+            Current Balance: BWP 5,000.00
             
-            Available Accounts:
-            • Savings Account: BWP 3,000.00
-            • Investment Account: BWP 2,000.00
+            Account Details:
+            • Account 1: SAV001 - BWP 3,000.00 (Savings)
+            • Account 2: INV001 - BWP 2,000.00 (Investment)
             
-            Quick Actions:
-            • Cash Withdrawal - Withdraw funds from your account
-            • Investment - Manage your investment portfolio
-            • Deposit - Add funds to your account
+            Recent Transactions:
+            • Jan 15: Deposit - BWP 1,000.00
+            • Jan 10: Interest Applied - BWP 15.00
+            • Jan 5: Account Opened - BWP 500.00
             
             Total Balance: BWP 5,000.00
-            Available Balance: BWP 4,800.00
             """;
 
-        txtManageAccounts.setText(accountInfo);
-        txtManageAccounts.setEditable(false);
+        txtViewAccounts.setText(accountInfo);
     }
 
-    // Handle Cash Withdrawal
     @FXML
     private void handleCashWithdrawl() {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/CashWithdrawl.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Withdrawal.fxml"));
             Parent root = loader.load();
-
-            Stage stage = (Stage) txtCashWithdrawl.getScene().getWindow();
+            Stage stage = (Stage) btnCashWithdrawl.getScene().getWindow();
             stage.setScene(new Scene(root));
             stage.setTitle("Cash Withdrawal - Orange Bank of Botswana");
         } catch (IOException e) {
-            showAlert("Error", "Unable to load cash withdrawal screen: " + e.getMessage());
+            showAlert("Error", "Unable to load cash withdrawal screen");
         }
     }
 
-    // Handle Investment
     @FXML
     private void handleInvestment() {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/Investment.fxml"));
             Parent root = loader.load();
-
             Stage stage = (Stage) btnInvestment.getScene().getWindow();
             stage.setScene(new Scene(root));
-            stage.setTitle("Investment - Orange Bank of Botswana");
+            stage.setTitle("Investment Options - Orange Bank of Botswana");
         } catch (IOException e) {
-            showAlert("Error", "Unable to load investment screen: " + e.getMessage());
+            showAlert("Error", "Unable to load investment screen");
         }
     }
 
-    // Handle Deposit
     @FXML
     private void handleDeposit() {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/Deposit.fxml"));
             Parent root = loader.load();
-
             Stage stage = (Stage) btnDeposit.getScene().getWindow();
             stage.setScene(new Scene(root));
             stage.setTitle("Deposit - Orange Bank of Botswana");
         } catch (IOException e) {
-            showAlert("Error", "Unable to load deposit screen: " + e.getMessage());
+            showAlert("Error", "Unable to load deposit screen");
         }
     }
 
-    // Handle Back
     @FXML
     private void handleBack() {
         try {
@@ -115,7 +93,7 @@ public class ManageAccountController {
             stage.setScene(new Scene(root));
             stage.setTitle("Dashboard - Orange Bank of Botswana");
         } catch (IOException e) {
-            showAlert("Error", "Unable to load dashboard: " + e.getMessage());
+            showAlert("Error", "Unable to load dashboard");
         }
     }
 

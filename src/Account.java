@@ -21,10 +21,4 @@ public abstract class Account {
     public abstract void deposit(double amount);
     public abstract boolean withdraw(double amount);
     public abstract void applyMonthlyInterest();
-
-    @Override
-    public String toString() {
-        return String.format("Account: %s | Type: %s | Balance: BWP %.2f",
-                accountNumber, accountType, balance);
-    }
 }
