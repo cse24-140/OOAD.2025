@@ -1,46 +1,30 @@
 public abstract class Account {
-    // Attributes
     protected String accountNumber;
     protected double balance;
     protected String customerId;
-    protected Customer customer; // corrected naming
+    protected String accountType;
 
-    // Constructor
-    public Account(String accountNumber, double balance, String customerId, Customer customer) {
+    public Account(String accountNumber, double balance, String customerId, String accountType) {
         this.accountNumber = accountNumber;
         this.balance = balance;
         this.customerId = customerId;
-        this.customer = customer;
+        this.accountType = accountType;
     }
 
-    // Alternative constructor (if you don’t need Customer object)
-    public Account(String accountNumber, double balance, String customerId) {
-        this(accountNumber, balance, customerId, null);
-    }
+    // Getters
+    public String getAccountNumber() { return accountNumber; }
+    public double getBalance() { return balance; }
+    public String getCustomerId() { return customerId; }
+    public String getAccountType() { return accountType; }
 
-    // Getter methods
-    public String getAccountNumber() {
-        return accountNumber;
-    }
-
-    public double getBalance() {
-        return balance;
-    }
-
-    public String getCustomerId() {
-        return customerId;
-    }
-
-    public double getAvailableBalance() {
-        return balance;
-    }
+    // Abstract methods
+    public abstract void deposit(double amount);
+    public abstract boolean withdraw(double amount);
+    public abstract void applyMonthlyInterest();
 
     @Override
     public String toString() {
-        return "Account Number: " + accountNumber +
-                "\nCustomer ID: " + customerId +
-                "\nBalance: BWP " + balance;
+        return String.format("Account: %s | Type: %s | Balance: BWP %.2f",
+                accountNumber, accountType, balance);
     }
-
-    public abstract void deposit(double amount);
 }

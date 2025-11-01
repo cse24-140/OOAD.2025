@@ -1,28 +1,28 @@
 public class CompanyCustomer extends Customer {
-        private String companyName;
-        private String registrationNumber; 
-        private String contactPerson; 
-    
-        public CompanyCustomer(String customerId, String phone, String address,
-                               String companyName, String registrationNumber, String contactPerson) {
-            super(customerId, phone, address);
-            this.companyName = companyName;
-            this.registrationNumber = registrationNumber;
-            this.contactPerson = contactPerson;
-        }
-    
-        
-        public String getCompanyName() { 
-            return companyName;
-         }
+    private String companyName;
+    private String registrationNumber;
+    private String contactPerson;
 
-        public String getRegistrationNumber() {
-             return registrationNumber; 
-            }
-
-        public String getContactPerson() {
-             return contactPerson;
-             }
+    public CompanyCustomer(String customerId, String companyName, String registrationNumber,
+                           String contactPerson, String phone, String address, String email, String password) {
+        super(customerId, phone, address, email, password);
+        this.companyName = companyName;
+        this.registrationNumber = registrationNumber;
+        this.contactPerson = contactPerson;
     }
-    
 
+    // Getters
+    public String getCompanyName() { return companyName; }
+    public String getRegistrationNumber() { return registrationNumber; }
+    public String getContactPerson() { return contactPerson; }
+
+    @Override
+    public String getCustomerType() {
+        return "Company";
+    }
+
+    @Override
+    public String toString() {
+        return String.format("Company Customer: %s (Reg: %s)", companyName, registrationNumber);
+    }
+}

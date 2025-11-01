@@ -1,30 +1,26 @@
-public class SavingsAccount extends Account implements PayInterest {
+public class SavingsAccount extends Account {
+    private static final double MONTHLY_INTEREST_RATE = 0.0005; // 0.05% monthly
 
-    private static final double INTEREST_RATE = 0.0025; // 0.25% monthly interest
-
-    // Constructor
-    public SavingsAccount(String accountNumber, double balance, String customerId, Customer customer) {
-        super(accountNumber, balance, customerId, customer);
+    public SavingsAccount(String accountNumber, double balance, String customerId) {
+        super(accountNumber, balance, customerId, "Savings");
     }
 
-    // Implement deposit method from Deposit interface
     @Override
     public void deposit(double amount) {
         if (amount > 0) {
             balance += amount;
         }
-        // No System.out.println() — controller will handle UI messages
-    }
-
-    // Method to apply monthly interest
-    public void applyInterest() {
-        double interest = balance * INTEREST_RATE;
-        balance += interest;
-        // No print — controller can fetch balance and display on GUI
     }
 
     @Override
-    public void payInterest() {
+    public boolean withdraw(double amount) {
+        // Savings account does not allow withdrawals as per assignment
+        return false;
+    }
 
+    @Override
+    public void applyMonthlyInterest() {
+        double interest = balance * MONTHLY_INTEREST_RATE;
+        balance += interest;
     }
 }
