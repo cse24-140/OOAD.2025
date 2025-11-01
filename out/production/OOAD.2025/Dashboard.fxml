@@ -65,7 +65,7 @@
 
       <!-- Bottom Actions -->
       <Button fx:id="btnLogOut" onAction="#handleLogOut" prefHeight="35" prefWidth="150" style="-fx-font-size: 14px; -fx-background-color: black; -fx-text-fill: white; -fx-background-radius: 10;" text="Log Out" />
-   
+
       <!-- FOOTER -->
       <Label style="-fx-font-size: 12px; -fx-text-fill: black;" text="© 2025 Orange Bank of Botswana - Secure Banking System" />
    </VBox>
