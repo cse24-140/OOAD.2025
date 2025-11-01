@@ -3,29 +3,70 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: linear-gradient(to bottom right, #ff8c00, #ffffff);" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="DashboardController">
+<AnchorPane prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: linear-gradient(to bottom right, #ff8c00, #ffffff);" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="DashboardController">
 
    <!-- HEADER -->
-   <HBox alignment="CENTER_LEFT" layoutX="248.0" layoutY="47.0" prefHeight="45.0" prefWidth="283.0" spacing="20" style="-fx-background-color: black; -fx-padding: 15;" />
+   <VBox alignment="CENTER" prefHeight="80" prefWidth="900" style="-fx-background-color: black; -fx-padding: 15;">
+      <Label style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: white;" text="Orange Bank of Botswana" />
+      <Label fx:id="lblCustomerInfo" style="-fx-font-size: 14px; -fx-text-fill: #ff8c00;" text="Welcome to Your Banking Dashboard" />
+   </VBox>
 
    <!-- MAIN CONTENT -->
-   <VBox alignment="CENTER" layoutX="200" layoutY="120" prefHeight="300" prefWidth="400" spacing="20" style="-fx-background-color: rgba(255,255,255,0.95); -fx-background-radius: 15; -fx-padding: 30; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.25), 10, 0, 0, 2);">
+   <VBox alignment="TOP_CENTER" layoutX="250" layoutY="100" prefHeight="400" prefWidth="400" spacing="15" style="-fx-background-color: rgba(255,255,255,0.95); -fx-background-radius: 15;                 -fx-padding: 30; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.25), 10, 0, 0, 2);">
 
       <Label fx:id="lblWelcome" style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #ff8c00;" text="Welcome, User!" />
 
       <Separator />
 
-      <Button fx:id="btnAccounts" onAction="#handleAccounts" prefHeight="40" prefWidth="220" style="-fx-font-size: 14px; -fx-background-color: #ff8c00; -fx-text-fill: white; -fx-background-radius: 10;" text="Manage Accounts" />
+      <!-- Account Summary -->
+      <VBox alignment="CENTER_LEFT" spacing="10" style="-fx-padding: 10;">
+         <Label style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #333;" text="Account Summary" />
+         <Label fx:id="lblTotalBalance" style="-fx-font-size: 14px; -fx-text-fill: #333;" text="Total Balance: BWP 0.00" />
+         <Label fx:id="lblAccountCount" style="-fx-font-size: 12px; -fx-text-fill: #666;" text="Accounts: 0" />
+      </VBox>
 
-      <Button fx:id="btnViewBalance" onAction="#handleViewBalance" prefHeight="40" prefWidth="220" style="-fx-font-size: 14px; -fx-background-color: #ff8c00; -fx-text-fill: white; -fx-background-radius: 10;" text="View Balance" />
+      <Separator />
 
-      <Button fx:id="btnViewTransactionHistory" onAction="#handleViewTransactionHistory" prefHeight="40" prefWidth="220" style="-fx-font-size: 14px; -fx-background-color: #ff8c00; -fx-text-fill: white; -fx-background-radius: 10;" text="Transaction History" />
+      <!-- Banking Actions Grid -->
+      <GridPane alignment="CENTER" hgap="10" vgap="10">
+         <columnConstraints>
+            <ColumnConstraints prefWidth="200" />
+            <ColumnConstraints prefWidth="200" />
+         </columnConstraints>
 
-      <Button fx:id="btnLogOut" onAction="#handleLogOut" prefHeight="40" prefWidth="220" style="-fx-font-size: 14px; -fx-background-color: black; -fx-text-fill: white; -fx-background-radius: 10;" text="Log Out" />
+         <!-- Row 1 -->
+         <Button fx:id="btnOpenAccount" onAction="#handleOpenAccount" prefHeight="40" prefWidth="190" style="-fx-font-size: 12px; -fx-background-color: #ff8c00; -fx-text-fill: white; -fx-background-radius: 8;" text="Open New Account" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+
+         <Button fx:id="btnManageAccounts" onAction="#handleManageAccounts" prefHeight="40" prefWidth="190" style="-fx-font-size: 12px; -fx-background-color: #ff8c00; -fx-text-fill: white; -fx-background-radius: 8;" text="Manage Accounts" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+         <!-- Row 2 -->
+         <Button fx:id="btnDeposit" onAction="#handleDeposit" prefHeight="40" prefWidth="190" style="-fx-font-size: 12px; -fx-background-color: #32CD32; -fx-text-fill: white; -fx-background-radius: 8;" text="Deposit Funds" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+
+         <Button fx:id="btnWithdraw" onAction="#handleWithdraw" prefHeight="40" prefWidth="190" style="-fx-font-size: 12px; -fx-background-color: #FF4500; -fx-text-fill: white; -fx-background-radius: 8;" text="Cash Withdrawal" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+         <!-- Row 3 -->
+         <Button fx:id="btnViewBalance" onAction="#handleViewBalance" prefHeight="40" prefWidth="190" style="-fx-font-size: 12px; -fx-background-color: #4169E1; -fx-text-fill: white; -fx-background-radius: 8;" text="View Balance" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+
+         <Button fx:id="btnTransactionHistory" onAction="#handleTransactionHistory" prefHeight="40" prefWidth="190" style="-fx-font-size: 12px; -fx-background-color: #4169E1; -fx-text-fill: white; -fx-background-radius: 8;" text="Transaction History" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+         <!-- Row 4 -->
+         <Button fx:id="btnInvestment" onAction="#handleInvestment" prefHeight="40" prefWidth="190" style="-fx-font-size: 12px; -fx-background-color: #8A2BE2; -fx-text-fill: white; -fx-background-radius: 8;" text="Investment" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+
+         <Button fx:id="btnApplyInterest" onAction="#handleApplyInterest" prefHeight="40" prefWidth="190" style="-fx-font-size: 12px; -fx-background-color: #8A2BE2; -fx-text-fill: white; -fx-background-radius: 8;" text="Apply Interest" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+         <rowConstraints>
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+         </rowConstraints>
+      </GridPane>
+
+      <Separator />
+
+      <!-- Bottom Actions -->
+      <Button fx:id="btnLogOut" onAction="#handleLogOut" prefHeight="35" prefWidth="150" style="-fx-font-size: 14px; -fx-background-color: black; -fx-text-fill: white; -fx-background-radius: 10;" text="Log Out" />
+   
+      <!-- FOOTER -->
+      <Label style="-fx-font-size: 12px; -fx-text-fill: black;" text="© 2025 Orange Bank of Botswana - Secure Banking System" />
    </VBox>
-
-   <!-- FOOTER -->
-   <Label layoutX="300" layoutY="470" style="-fx-font-size: 12px; -fx-text-fill: black;" text="© 2025 Orange Bank of Botswana" />
-   <Label layoutX="253.0" layoutY="52.0" style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: white;" text="Orange Bank of Botswana" />
-
 </AnchorPane>

@@ -2,81 +2,59 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-      prefHeight="750.0" prefWidth="520.0"
-      xmlns="http://javafx.com/javafx/11.0.1"
-      xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="SignUpController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="850.0" prefWidth="527.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SignUpController">
 
    <children>
       <!-- Bank Title -->
-      <Label layoutX="61.0" layoutY="54.0" prefHeight="39.0" prefWidth="300.0"
-             style="-fx-font-size: 18px; -fx-font-weight: bold;"
-             text="Orange Bank Of Botswana"/>
+      <Label layoutX="61.0" layoutY="30.0" prefHeight="39.0" prefWidth="300.0" style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Orange Bank Of Botswana" />
 
       <!-- Customer Type -->
-      <Label layoutX="55.0" layoutY="100.0" text="Customer Type:"/>
-      <ComboBox fx:id="cmbCustomerType" layoutX="177.0" layoutY="100.0"
-                prefHeight="25.0" prefWidth="252.0"/>
+      <Label layoutX="55.0" layoutY="80.0" text="Customer Type:" />
+      <ComboBox fx:id="cmbCustomerType" layoutX="177.0" layoutY="80.0" prefHeight="25.0" prefWidth="252.0" />
+
+      <!-- Customer ID Field (Auto-generated but displayed) -->
+      <Label layoutX="55.0" layoutY="120.0" text="Customer ID:" />
+      <TextField fx:id="txtCustomerId" layoutX="177.0" layoutY="120.0" prefHeight="25.0" prefWidth="252.0" editable="false" style="-fx-background-color: #f0f0f0;" />
 
       <!-- Individual Customer Fields -->
-      <Label layoutX="55.0" layoutY="147.0" text="First Name:"/>
-      <TextField fx:id="txtFirstName" layoutX="177.0" layoutY="147.0"
-                 prefHeight="25.0" prefWidth="252.0"/>
-      <Label layoutX="55.0" layoutY="187.0" text="Last Name:"/>
-      <TextField fx:id="txtLastName" layoutX="177.0" layoutY="187.0"
-                 prefHeight="25.0" prefWidth="252.0"/>
-      <Label layoutX="55.0" layoutY="227.0" text="Username:"/>
-      <TextField fx:id="txtUsername" layoutX="177.0" layoutY="227.0"
-                 prefHeight="25.0" prefWidth="252.0"/>
-      <Label layoutX="55.0" layoutY="267.0" text="Password:"/>
-      <PasswordField fx:id="txtPassword" layoutX="177.0" layoutY="267.0"
-                     prefHeight="25.0" prefWidth="252.0"/>
-      <Label layoutX="55.0" layoutY="307.0" text="Address:"/>
-      <TextField fx:id="txtIndAddress" layoutX="177.0" layoutY="307.0"
-                 prefHeight="25.0" prefWidth="252.0"/>
-      <Label layoutX="55.0" layoutY="347.0" text="Omang:"/>
-      <TextField fx:id="txtOmang" layoutX="177.0" layoutY="347.0"
-                 prefHeight="25.0" prefWidth="252.0"/>
-      <Label layoutX="55.0" layoutY="387.0" text="Email:"/>
-      <TextField fx:id="txtIndEmail" layoutX="177.0" layoutY="387.0"
-                 prefHeight="25.0" prefWidth="252.0"/>
-      <Label layoutX="55.0" layoutY="427.0" text="Phone Number:"/>
-      <TextField fx:id="txtIndPhone" layoutX="177.0" layoutY="427.0"
-                 prefHeight="25.0" prefWidth="252.0"/>
-      <Label layoutX="55.0" layoutY="467.0" text="Gender:"/>
-      <ComboBox fx:id="cmbGender" layoutX="177.0" layoutY="467.0"
-                prefHeight="25.0" prefWidth="252.0"/>
+      <Label layoutX="55.0" layoutY="160.0" text="First Name:" />
+      <TextField fx:id="txtFirstName" layoutX="177.0" layoutY="160.0" prefHeight="25.0" prefWidth="252.0" />
+      <Label layoutX="55.0" layoutY="200.0" text="Last Name:" />
+      <TextField fx:id="txtLastName" layoutX="177.0" layoutY="200.0" prefHeight="25.0" prefWidth="252.0" />
+      <Label layoutX="55.0" layoutY="240.0" text="Username:" />
+      <TextField fx:id="txtUsername" layoutX="177.0" layoutY="240.0" prefHeight="25.0" prefWidth="252.0" />
+      <Label layoutX="55.0" layoutY="280.0" text="Password:" />
+      <PasswordField fx:id="txtPassword" layoutX="177.0" layoutY="280.0" prefHeight="25.0" prefWidth="252.0" />
+      <Label layoutX="55.0" layoutY="320.0" text="Address:" />
+      <TextField fx:id="txtIndAddress" layoutX="177.0" layoutY="320.0" prefHeight="25.0" prefWidth="252.0" />
+      <Label layoutX="55.0" layoutY="360.0" text="Omang:" />
+      <TextField fx:id="txtOmang" layoutX="177.0" layoutY="360.0" prefHeight="25.0" prefWidth="252.0" />
+      <Label layoutX="55.0" layoutY="400.0" text="Email:" />
+      <TextField fx:id="txtIndEmail" layoutX="177.0" layoutY="400.0" prefHeight="25.0" prefWidth="252.0" />
+      <Label layoutX="55.0" layoutY="440.0" text="Phone Number:" />
+      <TextField fx:id="txtIndPhone" layoutX="177.0" layoutY="440.0" prefHeight="25.0" prefWidth="252.0" />
+      <Label layoutX="55.0" layoutY="480.0" text="Gender:" />
+      <ComboBox fx:id="cmbGender" layoutX="177.0" layoutY="480.0" prefHeight="25.0" prefWidth="252.0" />
 
       <!-- Business Customer Fields -->
-      <Label fx:id="lblContactFirstName" layoutX="55.0" layoutY="507.0" text="Contact First Name:"/>
-      <TextField fx:id="txtContactFirstName" layoutX="177.0" layoutY="507.0"
-                 prefHeight="25.0" prefWidth="252.0"/>
-      <Label fx:id="lblContactLastName" layoutX="55.0" layoutY="547.0" text="Contact Last Name:"/>
-      <TextField fx:id="txtContactLastName" layoutX="177.0" layoutY="547.0"
-                 prefHeight="25.0" prefWidth="252.0"/>
-      <Label fx:id="lblCompanyName" layoutX="55.0" layoutY="587.0" text="Company Name:"/>
-      <TextField fx:id="txtCompanyName" layoutX="177.0" layoutY="587.0"
-                 prefHeight="25.0" prefWidth="252.0"/>
-      <Label fx:id="lblCompanyAddress" layoutX="55.0" layoutY="627.0" text="Company Address:"/>
-      <TextField fx:id="txtCompanyAddress" layoutX="177.0" layoutY="627.0"
-                 prefHeight="25.0" prefWidth="252.0"/>
-      <Label fx:id="lblTaxNumber" layoutX="55.0" layoutY="667.0" text="Tax Number:"/>
-      <TextField fx:id="txtTaxNumber" layoutX="177.0" layoutY="667.0"
-                 prefHeight="25.0" prefWidth="252.0"/>
-      <Label fx:id="lblBusinessRegNum" layoutX="55.0" layoutY="707.0" text="Business Reg. No.:"/>
-      <TextField fx:id="txtBusinessRegNum" layoutX="177.0" layoutY="707.0"
-                 prefHeight="25.0" prefWidth="252.0"/>
-      <Label fx:id="lblPosition" layoutX="55.0" layoutY="747.0" text="Position at Work:"/>
-      <TextField fx:id="txtPosition" layoutX="177.0" layoutY="747.0"
-                 prefHeight="25.0" prefWidth="252.0"/>
+      <Label fx:id="lblContactFirstName" layoutX="55.0" layoutY="520.0" text="Contact First Name:" />
+      <TextField fx:id="txtContactFirstName" layoutX="177.0" layoutY="520.0" prefHeight="25.0" prefWidth="252.0" />
+      <Label fx:id="lblContactLastName" layoutX="55.0" layoutY="560.0" text="Contact Last Name:" />
+      <TextField fx:id="txtContactLastName" layoutX="177.0" layoutY="560.0" prefHeight="25.0" prefWidth="252.0" />
+      <Label fx:id="lblCompanyName" layoutX="55.0" layoutY="600.0" text="Company Name:" />
+      <TextField fx:id="txtCompanyName" layoutX="177.0" layoutY="600.0" prefHeight="25.0" prefWidth="252.0" />
+      <Label fx:id="lblCompanyAddress" layoutX="55.0" layoutY="640.0" text="Company Address:" />
+      <TextField fx:id="txtCompanyAddress" layoutX="177.0" layoutY="640.0" prefHeight="25.0" prefWidth="252.0" />
+      <Label fx:id="lblTaxNumber" layoutX="55.0" layoutY="680.0" text="Tax Number:" />
+      <TextField fx:id="txtTaxNumber" layoutX="177.0" layoutY="680.0" prefHeight="25.0" prefWidth="252.0" />
+      <Label fx:id="lblBusinessRegNum" layoutX="55.0" layoutY="720.0" text="Business Reg. No.:" />
+      <TextField fx:id="txtBusinessRegNum" layoutX="177.0" layoutY="720.0" prefHeight="25.0" prefWidth="252.0" />
+      <Label fx:id="lblPosition" layoutX="55.0" layoutY="760.0" text="Position at Work:" />
+      <TextField fx:id="txtPosition" layoutX="177.0" layoutY="760.0" prefHeight="25.0" prefWidth="252.0" />
 
       <!-- Buttons -->
-      <Button fx:id="btnLogin" layoutX="55.0" layoutY="790.0" mnemonicParsing="false"
-              onAction="#handleLogin" prefHeight="25.0" prefWidth="95.0" text="Login"/>
-      <Button fx:id="btnSignUp" layoutX="236.0" layoutY="790.0" mnemonicParsing="false"
-              onAction="#handleSignUp" prefHeight="25.0" prefWidth="95.0" text="Sign Up"/>
+      <Button fx:id="btnLogin" layoutX="55.0" layoutY="800.0" mnemonicParsing="false" onAction="#handleLogin" prefHeight="30.0" prefWidth="100.0" text="Back to Login" />
+      <Button fx:id="btnSignUp" layoutX="230.0" layoutY="800.0" mnemonicParsing="false" onAction="#handleSignUp" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: #ff8c00; -fx-text-fill: white;" text="Register" />
    </children>
 </Pane>
