@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<AnchorPane prefHeight="600" prefWidth="900"
+            xmlns="http://javafx.com/javafx/17.0.1"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="controllers.TransactionHistoryController"
+            style="-fx-background-color: linear-gradient(to bottom right, #ff8c00, #ffffff);">
+
+    <!-- HEADER -->
+    <VBox alignment="CENTER" prefHeight="100" prefWidth="900"
+          style="-fx-background-color: black; -fx-padding: 20;">
+        <Label text="Orange Bank of Botswana"
+               style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: white;" />
+        <Label text="Transaction History"
+               style="-fx-font-size: 16px; -fx-text-fill: #ff8c00;" />
+    </VBox>
+
+    <!-- CONTENT CARD -->
+    <VBox layoutX="150" layoutY="130" prefWidth="600" prefHeight="380"
+          spacing="15" alignment="TOP_CENTER"
+          style="-fx-background-color: rgba(255,255,255,0.95); -fx-background-radius: 15;
+                 -fx-padding: 25; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.25),10,0,0,2);">
+
+        <Label text="Your Recent Transactions"
+               style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #ff8c00;" />
+
+        <TableView fx:id="tblTransactions" prefHeight="300" prefWidth="550">
+            <columns>
+                <TableColumn fx:id="colDate" text="Date" prefWidth="140" />
+                <TableColumn fx:id="colType" text="Type" prefWidth="140" />
+                <TableColumn fx:id="colAmount" text="Amount (BWP)" prefWidth="130" />
+                <TableColumn fx:id="colAccount" text="Account" prefWidth="140" />
+            </columns>
+        </TableView>
+
+        <Button fx:id="btnBack" text="Back to Dashboard"
+                onAction="#handleBack"
+                style="-fx-background-color: black; -fx-text-fill: white; -fx-font-size: 14px;
+                       -fx-background-radius: 10;" 
+                prefWidth="200" prefHeight="40"/>
+    </VBox>
+
+</AnchorPane>

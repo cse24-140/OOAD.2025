@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<AnchorPane prefHeight="600" prefWidth="800"
+            xmlns="http://javafx.com/javafx/11.0.1"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="controllers.ManageAccountController"
+            style="-fx-background-color: white;">
+
+   <!-- Header -->
+   <Label text="Account Management"
+          layoutX="20" layoutY="20"
+          style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #ff8c00;"/>
+
+   <!-- Main Content Container -->
+   <VBox layoutX="50" layoutY="80" spacing="20" prefWidth="700" prefHeight="500">
+
+      <!-- Account Summary Section -->
+      <VBox spacing="10"
+            style="-fx-background-color: white; -fx-background-radius: 10;
+                   -fx-padding: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);
+                   -fx-border-color: #ff8c00; -fx-border-width: 2; -fx-border-radius: 10;">
+         <Label text="Account Summary"
+                style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #ff8c00;"/>
+         <TextArea fx:id="txtViewAccounts" prefHeight="150" prefWidth="660"
+                   editable="false" wrapText="true"
+                   style="-fx-font-family: 'Monospaced'; -fx-font-size: 12px; -fx-background-color: white; -fx-text-fill: black;"/>
+      </VBox>
+
+      <!-- Action Buttons Section -->
+      <GridPane hgap="20" vgap="20" prefWidth="700">
+         <columnConstraints>
+            <ColumnConstraints prefWidth="200"/>
+            <ColumnConstraints prefWidth="200"/>
+            <ColumnConstraints prefWidth="200"/>
+         </columnConstraints>
+
+         <rowConstraints>
+            <RowConstraints prefHeight="100"/>
+         </rowConstraints>
+
+         <!-- Cash Withdrawal Button -->
+         <VBox alignment="CENTER" spacing="10"
+               style="-fx-background-color: #ff8c00; -fx-background-radius: 10;
+                      -fx-padding: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5, 0, 0, 2);">
+            <Button fx:id="btnCashWithdrawl" text="Cash Withdrawal"
+                    onAction="#handleCashWithdrawl"
+                    style="-fx-background-color: white; -fx-text-fill: #ff8c00;
+                           -fx-font-weight: bold; -fx-background-radius: 5; -fx-border-color: #ff8c00;"
+                    prefWidth="160" prefHeight="40"/>
+            <Label text="Withdraw money from your account"
+                   style="-fx-text-fill: white; -fx-font-size: 11px; -fx-text-alignment: center;"
+                   wrapText="true"/>
+         </VBox>
+
+         <!-- Investment Button -->
+         <VBox alignment="CENTER" spacing="10" GridPane.columnIndex="1"
+               style="-fx-background-color: black; -fx-background-radius: 10;
+                      -fx-padding: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5, 0, 0, 2);">
+            <Button fx:id="btnInvestment" text="Investment"
+                    onAction="#handleInvestment"
+                    style="-fx-background-color: white; -fx-text-fill: black;
+                           -fx-font-weight: bold; -fx-background-radius: 5; -fx-border-color: black;"
+                    prefWidth="160" prefHeight="40"/>
+            <Label text="Manage your investments and portfolios"
+                   style="-fx-text-fill: white; -fx-font-size: 11px; -fx-text-alignment: center;"
+                   wrapText="true"/>
+         </VBox>
+
+         <!-- Deposit Button -->
+         <VBox alignment="CENTER" spacing="10" GridPane.columnIndex="2"
+               style="-fx-background-color: #ff8c00; -fx-background-radius: 10;
+                      -fx-padding: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5, 0, 0, 2);">
+            <Button fx:id="btnDeposit" text="Deposit"
+                    onAction="#handleDeposit"
+                    style="-fx-background-color: white; -fx-text-fill: #ff8c00;
+                           -fx-font-weight: bold; -fx-background-radius: 5; -fx-border-color: #ff8c00;"
+                    prefWidth="160" prefHeight="40"/>
+            <Label text="Deposit money into your account"
+                   style="-fx-text-fill: white; -fx-font-size: 11px; -fx-text-alignment: center;"
+                   wrapText="true"/>
+         </VBox>
+      </GridPane>
+
+      <!-- Back Button -->
+      <HBox alignment="CENTER_RIGHT" prefWidth="700">
+         <Button fx:id="btnBack" text="Back to Dashboard"
+                 onAction="#handleBack"
+                 style="-fx-background-color: black; -fx-text-fill: white;
+                        -fx-font-weight: bold; -fx-background-radius: 5;"
+                 prefWidth="150" prefHeight="35"/>
+      </HBox>
+   </VBox>
+
+</AnchorPane>

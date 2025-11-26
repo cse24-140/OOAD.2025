@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+
+<AnchorPane prefHeight="600.0" prefWidth="900.0" 
+            style="-fx-background-color: linear-gradient(to bottom right, #ff8c00, #ffffff);" 
+            xmlns="http://javafx.com/javafx/17.0.12" 
+            xmlns:fx="http://javafx.com/fxml/1" 
+            fx:controller="controllers.LoginController">
+
+   <!-- HEADER -->
+   <VBox alignment="CENTER" prefHeight="80" prefWidth="900" style="-fx-background-color: black; -fx-padding: 15;">
+      <Label style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: white;" text="Orange Bank of Botswana" />
+      <Label style="-fx-font-size: 14px; -fx-text-fill: #ff8c00;" text="Secure Banking Login" />
+   </VBox>
+
+   <VBox alignment="CENTER" layoutX="250" layoutY="150" prefHeight="300" prefWidth="400" spacing="20" 
+         style="-fx-background-color: rgba(255,255,255,0.95); -fx-background-radius: 15; -fx-padding: 30; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.25), 10, 0, 0, 2);">
+
+      <Label style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #ff8c00;" text="Welcome Back" />
+
+      <Separator />
+
+      <VBox spacing="15" style="-fx-padding: 10;">
+         <VBox spacing="5">
+            <Label style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: #333;" text="Username" />
+            <TextField fx:id="txtUsername" prefHeight="35" prefWidth="300" 
+                       style="-fx-background-radius: 8; -fx-border-color: #ccc; -fx-border-radius: 8; -fx-padding: 5;" 
+                       promptText="Enter your username" />
+         </VBox>
+
+         <VBox spacing="5">
+            <Label style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: #333;" text="Password" />
+            <PasswordField fx:id="txtPassword" prefHeight="35" prefWidth="300" 
+                           style="-fx-background-radius: 8; -fx-border-color: #ccc; -fx-border-radius: 8; -fx-padding: 5;" 
+                           promptText="Enter your password" />
+         </VBox>
+
+         <Button fx:id="btnLogin" onAction="#handleLogin" prefHeight="40" prefWidth="300" 
+                 style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-background-color: #ff8c00; -fx-text-fill: white; -fx-background-radius: 8;" 
+                 text="Login" />
+
+         <HBox alignment="CENTER" spacing="5">
+            <Label style="-fx-font-size: 12px; -fx-text-fill: #666;" text="Don't have an account?" />
+            <Button fx:id="btnSignUp" onAction="#handleSignUp" 
+                    style="-fx-font-size: 12px; -fx-background-color: transparent; -fx-text-fill: #ff8c00; -fx-underline: true; -fx-padding: 0;" 
+                    text="Sign Up Here" />
+         </HBox>
+      </VBox>
+
+      <Separator />
+
+      <Label style="-fx-font-size: 10px; -fx-text-fill: #666; -fx-alignment: center; -fx-wrap-text: true;" 
+             text="Your security is our priority. All data is encrypted and protected." />
+
+   </VBox>
+
+   <VBox alignment="CENTER" layoutY="550" prefHeight="50" prefWidth="900" 
+         style="-fx-background-color: rgba(0,0,0,0.8); -fx-padding: 10;">
+      <Label style="-fx-font-size: 12px; -fx-text-fill: white;" 
+             text="© 2025 Orange Bank of Botswana - Secure Banking System" />
+   </VBox>
+</AnchorPane>
